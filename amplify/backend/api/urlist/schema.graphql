@@ -1,0 +1,27 @@
+type List implements IDescribed & ITitled
+  @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }])
+  @model {
+  description: String
+  id: ID!
+  links: [Link] @connection(fields: ["id"], keyName: "LinksByListId")
+  title: String
+}
+
+type Link implements IDescribed & ITitled
+  @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }])
+  @key(fields: ["listId"], name: "LinksByListId", queryField: "linksByListId")
+  @model {
+  description: String
+  id: ID!
+  listId: ID!
+  title: String
+  url: AWSURL!
+}
+
+interface IDescribed {
+  description: String
+}
+
+interface ITitled {
+  title: String
+}
