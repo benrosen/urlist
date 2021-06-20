@@ -67,32 +67,22 @@ export type List = {
   owner?: string | null,
 };
 
-export type IDescribed = {
-  __typename: "IDescribed",
-  description?: string | null,
-};
-
-export type Link = {
-  __typename: "Link",
-  description?: string | null,
-  id: string,
-  listId: string,
-  title?: string | null,
-  url: string,
-  createdAt: string,
-  updatedAt: string,
-  owner?: string | null,
-};
-
-export type ITitled = {
-  __typename: "ITitled",
-  title?: string | null,
-};
-
 export type ModelLinkConnection = {
   __typename: "ModelLinkConnection",
   items?:  Array<Link | null > | null,
   nextToken?: string | null,
+};
+
+export type Link = {
+  __typename: "Link",
+  id: string,
+  list?: List | null,
+  listId: string,
+  url: string,
+  title?: string | null,
+  createdAt: string,
+  updatedAt: string,
+  owner?: string | null,
 };
 
 export type UpdateListInput = {
@@ -106,18 +96,16 @@ export type DeleteListInput = {
 };
 
 export type CreateLinkInput = {
-  description?: string | null,
   id?: string | null,
   listId: string,
-  title?: string | null,
   url: string,
+  title?: string | null,
 };
 
 export type ModelLinkConditionInput = {
-  description?: ModelStringInput | null,
   listId?: ModelIDInput | null,
-  title?: ModelStringInput | null,
   url?: ModelStringInput | null,
+  title?: ModelStringInput | null,
   and?: Array< ModelLinkConditionInput | null > | null,
   or?: Array< ModelLinkConditionInput | null > | null,
   not?: ModelLinkConditionInput | null,
@@ -140,11 +128,10 @@ export type ModelIDInput = {
 };
 
 export type UpdateLinkInput = {
-  description?: string | null,
   id: string,
   listId?: string | null,
-  title?: string | null,
   url?: string | null,
+  title?: string | null,
 };
 
 export type DeleteLinkInput = {
@@ -167,11 +154,10 @@ export type ModelListConnection = {
 };
 
 export type ModelLinkFilterInput = {
-  description?: ModelStringInput | null,
   id?: ModelIDInput | null,
   listId?: ModelIDInput | null,
-  title?: ModelStringInput | null,
   url?: ModelStringInput | null,
+  title?: ModelStringInput | null,
   and?: Array< ModelLinkFilterInput | null > | null,
   or?: Array< ModelLinkFilterInput | null > | null,
   not?: ModelLinkFilterInput | null,
@@ -197,11 +183,10 @@ export type CreateListMutation = {
       __typename: "ModelLinkConnection",
       items?:  Array< {
         __typename: "Link",
-        description?: string | null,
         id: string,
         listId: string,
-        title?: string | null,
         url: string,
+        title?: string | null,
         createdAt: string,
         updatedAt: string,
         owner?: string | null,
@@ -229,11 +214,10 @@ export type UpdateListMutation = {
       __typename: "ModelLinkConnection",
       items?:  Array< {
         __typename: "Link",
-        description?: string | null,
         id: string,
         listId: string,
-        title?: string | null,
         url: string,
+        title?: string | null,
         createdAt: string,
         updatedAt: string,
         owner?: string | null,
@@ -261,11 +245,10 @@ export type DeleteListMutation = {
       __typename: "ModelLinkConnection",
       items?:  Array< {
         __typename: "Link",
-        description?: string | null,
         id: string,
         listId: string,
-        title?: string | null,
         url: string,
+        title?: string | null,
         createdAt: string,
         updatedAt: string,
         owner?: string | null,
@@ -287,11 +270,23 @@ export type CreateLinkMutationVariables = {
 export type CreateLinkMutation = {
   createLink?:  {
     __typename: "Link",
-    description?: string | null,
     id: string,
+    list?:  {
+      __typename: "List",
+      description?: string | null,
+      id: string,
+      links?:  {
+        __typename: "ModelLinkConnection",
+        nextToken?: string | null,
+      } | null,
+      title?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     listId: string,
-    title?: string | null,
     url: string,
+    title?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,
@@ -306,11 +301,23 @@ export type UpdateLinkMutationVariables = {
 export type UpdateLinkMutation = {
   updateLink?:  {
     __typename: "Link",
-    description?: string | null,
     id: string,
+    list?:  {
+      __typename: "List",
+      description?: string | null,
+      id: string,
+      links?:  {
+        __typename: "ModelLinkConnection",
+        nextToken?: string | null,
+      } | null,
+      title?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     listId: string,
-    title?: string | null,
     url: string,
+    title?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,
@@ -325,11 +332,23 @@ export type DeleteLinkMutationVariables = {
 export type DeleteLinkMutation = {
   deleteLink?:  {
     __typename: "Link",
-    description?: string | null,
     id: string,
+    list?:  {
+      __typename: "List",
+      description?: string | null,
+      id: string,
+      links?:  {
+        __typename: "ModelLinkConnection",
+        nextToken?: string | null,
+      } | null,
+      title?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     listId: string,
-    title?: string | null,
     url: string,
+    title?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,
@@ -349,11 +368,10 @@ export type GetListQuery = {
       __typename: "ModelLinkConnection",
       items?:  Array< {
         __typename: "Link",
-        description?: string | null,
         id: string,
         listId: string,
-        title?: string | null,
         url: string,
+        title?: string | null,
         createdAt: string,
         updatedAt: string,
         owner?: string | null,
@@ -400,11 +418,23 @@ export type GetLinkQueryVariables = {
 export type GetLinkQuery = {
   getLink?:  {
     __typename: "Link",
-    description?: string | null,
     id: string,
+    list?:  {
+      __typename: "List",
+      description?: string | null,
+      id: string,
+      links?:  {
+        __typename: "ModelLinkConnection",
+        nextToken?: string | null,
+      } | null,
+      title?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     listId: string,
-    title?: string | null,
     url: string,
+    title?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,
@@ -422,11 +452,19 @@ export type ListLinksQuery = {
     __typename: "ModelLinkConnection",
     items?:  Array< {
       __typename: "Link",
-      description?: string | null,
       id: string,
+      list?:  {
+        __typename: "List",
+        description?: string | null,
+        id: string,
+        title?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        owner?: string | null,
+      } | null,
       listId: string,
-      title?: string | null,
       url: string,
+      title?: string | null,
       createdAt: string,
       updatedAt: string,
       owner?: string | null,
@@ -448,11 +486,19 @@ export type LinksByListIdQuery = {
     __typename: "ModelLinkConnection",
     items?:  Array< {
       __typename: "Link",
-      description?: string | null,
       id: string,
+      list?:  {
+        __typename: "List",
+        description?: string | null,
+        id: string,
+        title?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        owner?: string | null,
+      } | null,
       listId: string,
-      title?: string | null,
       url: string,
+      title?: string | null,
       createdAt: string,
       updatedAt: string,
       owner?: string | null,
@@ -470,11 +516,10 @@ export type OnCreateListSubscription = {
       __typename: "ModelLinkConnection",
       items?:  Array< {
         __typename: "Link",
-        description?: string | null,
         id: string,
         listId: string,
-        title?: string | null,
         url: string,
+        title?: string | null,
         createdAt: string,
         updatedAt: string,
         owner?: string | null,
@@ -497,11 +542,10 @@ export type OnUpdateListSubscription = {
       __typename: "ModelLinkConnection",
       items?:  Array< {
         __typename: "Link",
-        description?: string | null,
         id: string,
         listId: string,
-        title?: string | null,
         url: string,
+        title?: string | null,
         createdAt: string,
         updatedAt: string,
         owner?: string | null,
@@ -524,11 +568,10 @@ export type OnDeleteListSubscription = {
       __typename: "ModelLinkConnection",
       items?:  Array< {
         __typename: "Link",
-        description?: string | null,
         id: string,
         listId: string,
-        title?: string | null,
         url: string,
+        title?: string | null,
         createdAt: string,
         updatedAt: string,
         owner?: string | null,
@@ -545,11 +588,23 @@ export type OnDeleteListSubscription = {
 export type OnCreateLinkSubscription = {
   onCreateLink?:  {
     __typename: "Link",
-    description?: string | null,
     id: string,
+    list?:  {
+      __typename: "List",
+      description?: string | null,
+      id: string,
+      links?:  {
+        __typename: "ModelLinkConnection",
+        nextToken?: string | null,
+      } | null,
+      title?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     listId: string,
-    title?: string | null,
     url: string,
+    title?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,
@@ -559,11 +614,23 @@ export type OnCreateLinkSubscription = {
 export type OnUpdateLinkSubscription = {
   onUpdateLink?:  {
     __typename: "Link",
-    description?: string | null,
     id: string,
+    list?:  {
+      __typename: "List",
+      description?: string | null,
+      id: string,
+      links?:  {
+        __typename: "ModelLinkConnection",
+        nextToken?: string | null,
+      } | null,
+      title?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     listId: string,
-    title?: string | null,
     url: string,
+    title?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,
@@ -573,11 +640,23 @@ export type OnUpdateLinkSubscription = {
 export type OnDeleteLinkSubscription = {
   onDeleteLink?:  {
     __typename: "Link",
-    description?: string | null,
     id: string,
+    list?:  {
+      __typename: "List",
+      description?: string | null,
+      id: string,
+      links?:  {
+        __typename: "ModelLinkConnection",
+        nextToken?: string | null,
+      } | null,
+      title?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      owner?: string | null,
+    } | null,
     listId: string,
-    title?: string | null,
     url: string,
+    title?: string | null,
     createdAt: string,
     updatedAt: string,
     owner?: string | null,

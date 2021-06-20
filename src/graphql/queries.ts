@@ -9,11 +9,10 @@ export const getList = /* GraphQL */ `
       id
       links {
         items {
-          description
           id
           listId
-          title
           url
+          title
           createdAt
           updatedAt
           owner
@@ -52,11 +51,21 @@ export const listLists = /* GraphQL */ `
 export const getLink = /* GraphQL */ `
   query GetLink($id: ID!) {
     getLink(id: $id) {
-      description
       id
+      list {
+        description
+        id
+        links {
+          nextToken
+        }
+        title
+        createdAt
+        updatedAt
+        owner
+      }
       listId
-      title
       url
+      title
       createdAt
       updatedAt
       owner
@@ -71,11 +80,18 @@ export const listLinks = /* GraphQL */ `
   ) {
     listLinks(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        description
         id
+        list {
+          description
+          id
+          title
+          createdAt
+          updatedAt
+          owner
+        }
         listId
-        title
         url
+        title
         createdAt
         updatedAt
         owner
@@ -100,11 +116,18 @@ export const linksByListId = /* GraphQL */ `
       nextToken: $nextToken
     ) {
       items {
-        description
         id
+        list {
+          description
+          id
+          title
+          createdAt
+          updatedAt
+          owner
+        }
         listId
-        title
         url
+        title
         createdAt
         updatedAt
         owner

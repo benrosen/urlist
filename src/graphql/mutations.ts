@@ -12,11 +12,10 @@ export const createList = /* GraphQL */ `
       id
       links {
         items {
-          description
           id
           listId
-          title
           url
+          title
           createdAt
           updatedAt
           owner
@@ -40,11 +39,10 @@ export const updateList = /* GraphQL */ `
       id
       links {
         items {
-          description
           id
           listId
-          title
           url
+          title
           createdAt
           updatedAt
           owner
@@ -68,11 +66,10 @@ export const deleteList = /* GraphQL */ `
       id
       links {
         items {
-          description
           id
           listId
-          title
           url
+          title
           createdAt
           updatedAt
           owner
@@ -92,11 +89,21 @@ export const createLink = /* GraphQL */ `
     $condition: ModelLinkConditionInput
   ) {
     createLink(input: $input, condition: $condition) {
-      description
       id
+      list {
+        description
+        id
+        links {
+          nextToken
+        }
+        title
+        createdAt
+        updatedAt
+        owner
+      }
       listId
-      title
       url
+      title
       createdAt
       updatedAt
       owner
@@ -109,11 +116,21 @@ export const updateLink = /* GraphQL */ `
     $condition: ModelLinkConditionInput
   ) {
     updateLink(input: $input, condition: $condition) {
-      description
       id
+      list {
+        description
+        id
+        links {
+          nextToken
+        }
+        title
+        createdAt
+        updatedAt
+        owner
+      }
       listId
-      title
       url
+      title
       createdAt
       updatedAt
       owner
@@ -126,11 +143,21 @@ export const deleteLink = /* GraphQL */ `
     $condition: ModelLinkConditionInput
   ) {
     deleteLink(input: $input, condition: $condition) {
-      description
       id
+      list {
+        description
+        id
+        links {
+          nextToken
+        }
+        title
+        createdAt
+        updatedAt
+        owner
+      }
       listId
-      title
       url
+      title
       createdAt
       updatedAt
       owner
