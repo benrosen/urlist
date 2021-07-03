@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import { Logo } from "./Logo";
+import Logo from "./index";
 import React from "react";
 import { appTitle } from "./Logo.data.json";
 

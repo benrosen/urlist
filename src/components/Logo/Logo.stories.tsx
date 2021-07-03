@@ -1,4 +1,4 @@
-import { Logo as LogoComponent } from "./Logo";
+import LogoComponent from "./index";
 import { Meta } from "@storybook/react";
 import React from "react";
 
