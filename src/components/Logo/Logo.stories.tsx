@@ -4,11 +4,6 @@ import React from "react";
 
 export default {
   component: LogoComponent,
-  decorators: [
-    (Story) => {
-      return <Story />;
-    },
-  ],
   title: "Components/Logo",
 } as Meta;
 
