@@ -1,6 +1,6 @@
 import { ChakraProvider, theme } from '@chakra-ui/react'
 
-import {DisclosureProvider} from "components/DisclosureProvider"
+import DisclosureProvider from "components/DisclosureProvider"
 import React from "react"
 
 export const parameters = {

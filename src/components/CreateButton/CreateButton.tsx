@@ -1,6 +1,6 @@
 import { AddIcon } from "@chakra-ui/icons";
 import { CreateButtonProps } from "./CreateButton.props";
-import { DisclosureContext } from "contexts/DisclosureContext";
+import { DisclosureContext } from "components/DisclosureProvider";
 import { IconButton } from "@chakra-ui/react";
 import React from "react";
 import { useContext } from "react";
