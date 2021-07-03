@@ -1,4 +1,78 @@
 {
+  "module-templates.engine": "handlebars",
+  "module-templates.templates": {
+    "react-component": {
+      "displayName": "React component",
+      "defaultPath": "source/components",
+      "folder": "{{pascal name}}",
+      "questions": {
+        "name": "Component name",
+        "role": "Aria role"
+      },
+      "files": [
+        {
+          "name": "index.ts",
+          "content": [
+            "export { {{pascal name}} as default } from \"./{{pascal name}}\";"
+          ]
+        },
+        {
+          "name": "{{pascal name}}.props.ts",
+          "content": [
+            "export type {{pascal name}}Props = {};"
+          ]
+        },
+        {
+          "name": "{{pascal name}}.stories.tsx",
+          "content": [
+            "import {{pascal name}}Component from \"./index\";",
+            "import { Meta } from \"@storybook/react\";",
+            "import React from \"react\";",
+            "",
+            "export default {",
+            "  component: {{pascal name}}Component,",
+            "  title: \"Components/{{pascal name}}\",",
+            "} as Meta;",
+            "",
+            "export const {{pascal name}} = () => <{{pascal name}}Component />"
+          ]
+        },
+        {
+          "name": "{{pascal name}}.test.tsx",
+          "content": [
+            "import { render, screen } from \"@testing-library/react\";",
+            "",
+            "import {{pascal name}} from \"./index\";",
+            "import React from \"react\";",
+            "",
+            "describe(\"The {{pascal name}} component\", () => {",
+            "  it(\"renders an element with a {{camel role}} role.\", () => {",
+            "    render(<{{pascal name}} />);",
+            "    const {{camel name}}Element = screen.getByRole(\"{{camel role}}\");",
+            "    expect({{camel name}}Element).toBeInTheDocument();",
+            "  });",
+            "});"
+          ]
+        },
+        {
+          "name": "{{pascal name}}.tsx",
+          "content": [
+            "import { {{pascal name}}Props } from \"./{{pascal name}}.props\";",
+            "import React from \"react\";",
+            "",
+            "/**",
+            " * The {{pascal name}} component.",
+            " *",
+            " * @todo implement {{pascal name}} component",
+            " */",
+            "export const {{pascal name}} = (props: {{pascal name}}Props): JSX.Element => {",
+            "  return <div />",
+            "};"
+          ]
+        }
+      ]
+    }
+  },
   "files.exclude": {
     "amplify/.config": true,
     "amplify/**/*-parameters.json": true,
