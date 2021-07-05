@@ -1,12 +1,5 @@
 {
-  "auth": {
-    "urlistff1f597dff1f597d": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
-      "customAuth": false
-    }
-  },
+  "auth": {},
   "api": {},
   "hosting": {
     "amplifyhosting": {
