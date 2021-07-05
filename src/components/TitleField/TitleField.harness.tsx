@@ -6,7 +6,7 @@ export const TitleFieldHarness = ({
   children,
 }: TitleFieldHarnessProps): JSX.Element => {
   return (
-    <FieldHarness initialValues={{ description: "" }} onSubmit={() => {}}>
+    <FieldHarness initialValues={{ title: "" }} onSubmit={() => {}}>
       {children}
     </FieldHarness>
   );

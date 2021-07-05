@@ -6,7 +6,7 @@ export const ListFieldHarness = ({
   children,
 }: ListFieldHarnessProps): JSX.Element => {
   return (
-    <FieldHarness initialValues={{ description: "" }} onSubmit={() => {}}>
+    <FieldHarness initialValues={{ items: "" }} onSubmit={() => {}}>
       {children}
     </FieldHarness>
   );
