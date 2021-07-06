@@ -7,7 +7,23 @@
       "customAuth": false
     }
   },
-  "api": {},
+  "api": {
+    "urlist": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authurlist9bb6fd3e9bb6fd3e"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  },
   "hosting": {
     "amplifyhosting": {
       "service": "amplifyhosting",

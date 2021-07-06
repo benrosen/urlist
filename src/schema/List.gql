@@ -1,0 +1,6 @@
+type List @model(subscriptions: null) {
+  description: String
+  id: ID!
+  links: [Link!]!
+  title: String
+}

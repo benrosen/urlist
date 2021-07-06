@@ -1,0 +1,11 @@
+# THIS FILE IS AUTO GENERATED AND WILL BE OVERWRITTEN
+type Link {
+  url: AWSURL!
+  title: String
+}
+type List @model(subscriptions: null) {
+  description: String
+  id: ID!
+  links: [Link!]!
+  title: String
+}

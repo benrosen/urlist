@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "urlist",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authurlist9bb6fd3e9bb6fd3e",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
