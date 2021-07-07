@@ -1,0 +1,22 @@
+{
+  "__typename": "List",
+  "id": "home",
+  "title": "Hello",
+  "description": "This is the default page. Below, you'll find a list of links. You can click the links to explore further.",
+  "links": [
+    {
+      "title": "Visit a random list.",
+      "url": "random"
+    },
+    {
+      "title": "Create ur own list.",
+      "url": "create"
+    },
+    {
+      "title": "No.",
+      "url": "tutorial"
+    }
+  ],
+  "createdAt": "",
+  "updatedAt": ""
+}
