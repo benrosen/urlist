@@ -6,9 +6,6 @@ import ThemeToggle from "components/ThemeToggle";
 
 /**
  * The Menu component displays the {@link CreateButton} and the {@link ThemeToggle}.
- *
- * @todo test Menu
- * @todo Menu stories
  */
 export const Menu = (props: MenuProps): JSX.Element => {
   return (

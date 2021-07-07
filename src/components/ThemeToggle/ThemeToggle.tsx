@@ -6,9 +6,6 @@ import { ThemeToggleProps } from "./ThemeToggle.props";
 
 /**
  * The ThemeToggle component toggles the app theme between light mode and dark mode when clicked.
- *
- * @todo test ThemeToggle
- * @todo ThemeToggle stories
  */
 export const ThemeToggle = (props: ThemeToggleProps): JSX.Element => {
   const { toggleColorMode } = useColorMode();

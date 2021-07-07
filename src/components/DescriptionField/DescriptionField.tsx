@@ -7,8 +7,6 @@ import { Textarea } from "@chakra-ui/react";
  * The DescriptionField component is a {@link Field} component that displays a textarea.
  *
  * @todo validate description field
- * @todo test DescriptionField
- * @todo DescriptionField stories
  */
 export const DescriptionField = (props: DescriptionFieldProps): JSX.Element => {
   return (

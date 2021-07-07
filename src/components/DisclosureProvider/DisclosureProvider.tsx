@@ -5,8 +5,6 @@ import { useDisclosure } from "@chakra-ui/react";
 
 /**
  * The DisclosureProvider component.
- *
- * @todo implement DisclosureProvider component
  */
 export const DisclosureProvider = (
   props: DisclosureProviderProps
