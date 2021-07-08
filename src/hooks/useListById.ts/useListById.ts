@@ -9,6 +9,8 @@ const DEFAULT_LIST: List = defaultList as List;
 
 /**
  * The useListById hook returns the list associated with a given list id. If the given id cannot be associated with an existing list, a default list will be returned instead.
+ *
+ * @todo document default return value
  */
 export const useListById = ({ id }: UseListByIdProps) => {
   const [list, setList] = useState<List>(DEFAULT_LIST);
