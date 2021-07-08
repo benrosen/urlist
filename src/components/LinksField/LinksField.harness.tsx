@@ -1,10 +1,10 @@
 import { FieldHarness } from "components/Field";
-import { ListFieldHarnessProps } from "./ListField.harness.props";
+import { LinksFieldHarnessProps } from "./LinksField.harness.props";
 import React from "react";
 
-export const ListFieldHarness = ({
+export const LinksFieldHarness = ({
   children,
-}: ListFieldHarnessProps): JSX.Element => {
+}: LinksFieldHarnessProps): JSX.Element => {
   return (
     <FieldHarness initialValues={{ items: "" }} onSubmit={() => {}}>
       {children}

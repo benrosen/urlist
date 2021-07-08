@@ -14,7 +14,7 @@ import DescriptionField from "components/DescriptionField";
 import { DisclosureContext } from "components/DisclosureProvider";
 import EndpointField from "components/EndpointField";
 import { Fragment } from "react";
-import ListField from "components/ListField";
+import LinksField from "components/LinksField";
 import SubmitButton from "components/SubmitButton";
 import TitleField from "components/TitleField";
 
@@ -51,7 +51,7 @@ export const Drawer = (): JSX.Element => {
                     <EndpointField ref={initialFocusRef} />
                     <TitleField />
                     <DescriptionField />
-                    <ListField />
+                    <LinksField />
                   </Form>
                 </DrawerBody>
                 <DrawerFooter>

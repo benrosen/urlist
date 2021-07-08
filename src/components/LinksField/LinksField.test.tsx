@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
 
-import ListField from "./index";
-import { ListFieldHarness } from "./ListField.harness";
+import LinksField from "./index";
+import { LinksFieldHarness } from "./LinksField.harness";
 import React from "react";
 
-describe("The ListField component", () => {
+describe("The LinksField component", () => {
   it("renders an element with a textbox role.", () => {
     render(
-      <ListFieldHarness>
-        <ListField />
-      </ListFieldHarness>
+      <LinksFieldHarness>
+        <LinksField />
+      </LinksFieldHarness>
     );
     const listFieldElement = screen.getByRole("textbox");
     expect(listFieldElement).toBeInTheDocument();
